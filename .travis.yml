@@ -2,4 +2,14 @@ language: bash
 services: docker
 
 script:
-  - echo never > /sys/kernel/mm/transparent_hugepage/defrag
+  - /bin/true
+
+after_deploy:
+  - echo "Deploying..."
+    
+
+deploy:
+  - provider: script
+    script: /bin/true
+    on:
+      condition: $TRAVIS_BRANCH = master || $TRAVIS_TAG = tag
