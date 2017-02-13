@@ -12,5 +12,5 @@ deploy:
   - provider: script
     script: /bin/true
     on:
-      tags: true
+      all_branches: true
       condition: $TRAVIS_BRANCH = master || $TRAVIS_TAG = tag
