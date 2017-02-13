@@ -14,3 +14,13 @@ deploy:
     on:
       all_branches: true
       condition: $TRAVIS_BRANCH = master || $TRAVIS_TAG = tag
+
+notifications:
+  webhooks:
+    urls:
+      - https://hooks.microbadger.com/images/stackfeed/consul/${MICROBADGER_TOKEN}
+    on_success: always
+    on_failure: never
+    on_start:   never
+    on_cancel:  never
+    on_error:   never
